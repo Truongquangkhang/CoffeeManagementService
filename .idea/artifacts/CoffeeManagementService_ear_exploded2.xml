@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="CoffeeManagementService:ear exploded2">
+    <output-path>$PROJECT_DIR$/out/artifacts/CoffeeManagementService_ear_exploded2</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="CoffeeManagementService/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
