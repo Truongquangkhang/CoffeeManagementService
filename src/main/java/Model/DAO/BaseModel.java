@@ -16,6 +16,8 @@ public class BaseModel {
             return null;
         }
     }
+
+
     public <T>List<T> query(String query, BaseMapping<T> mapper, Object...param){
         try {
             List<T> list = new ArrayList<>();
@@ -25,10 +27,24 @@ public class BaseModel {
             while(rs.next()){
                 list.add(mapper.Mapping(rs));
             }
-
             return list;
         }catch (Exception e){
             e.printStackTrace();
+            return null;
+        }
+    }
+    public <T> T find(String query, BaseMapping<T> mapper, Object...param){
+        try {
+            List<T> list = new ArrayList<>();
+            PreparedStatement ps = this.connection.prepareStatement(query);
+            setParameter(ps,param);
+            ResultSet rs=  ps.executeQuery();
+            while(rs.next()){
+                return mapper.Mapping(rs);
+            }
+            return null;
+        }catch (Exception e){
+
             return null;
         }
     }
@@ -44,6 +60,9 @@ public class BaseModel {
                     statement.setString(index, (String) parameter);
                 } else if (parameter instanceof Integer) {
                     statement.setInt(index, (Integer) parameter);
+                }
+                else if(parameter instanceof Boolean){
+                    statement.setBoolean(index,(Boolean) parameter);
                 }
             }
         } catch (SQLException e) {

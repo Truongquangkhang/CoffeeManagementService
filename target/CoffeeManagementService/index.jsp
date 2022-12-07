@@ -20,7 +20,7 @@
 
 <body>
 <div style="display: block;">
-    <div id="0" class="item"><a href="/Nhan-vien" target="frame3">Xem Thong tin nhan vien </a> </div>
+    <div id="0" class="item"><a href="/Login" target="frame3">Xem Thong tin nhan vien </a> </div>
 
 </div>
 </body>
